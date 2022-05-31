@@ -10,10 +10,10 @@ CDC (Change Data Capture) is a collection of software design patterns used to de
  
 ## Benefits of CDC
 
-CDC Generates more Savings
-CDC Generates more Revenue
-CDC Protects Business Assets
-CDC gets rid of Opportunity Costs
+CDC Generates more Savings<br/>
+CDC Generates more Revenue<br/>
+CDC Protects Business Assets<br/>
+CDC gets rid of Opportunity Costs<br/>
 
 
 ## Implementation Techniques for Change Data Capture (CDC)
