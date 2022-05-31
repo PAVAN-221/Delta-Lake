@@ -41,25 +41,29 @@ This log-based technique depends on this log information to spot the changes and
 ## Use Cases for Change Data Capture in ETL
 
 1) **Transaction Analysis**<br/>
-- **Fraud detection:**<br/>
+
+ - **Fraud detection**<br/>
 You want to analyze transactions in some sort of batch manner to see if credit cards are being used from multiple locations at the same time.
-•	Kafka pipeline
+ - **Kafka pipeline**<br/>
 You want some sort of analysis done on a transaction level and not an aggregated level.
+
 2) **Data Duplication**<br/>
-•	Database mirroring
+ - **Kafka pipeline**<br/>
 Database mirroring is a strategy used in High Availability (HA) and Disaster Recovery (DR) database deployments. It involves two or three SQL Server instances where one acts as a primary instance (principal), the other as a mirrored instance (mirror), while the third instance acts as the witness.
-•	Database replication
+ - **Database replication**<br/>
 Database replication is the process of copying data from a database in one server to a database in another server so that all users share the same level of information without any inconsistency. It can be a one-time operation or an ongoing process.
-Slowly Changing Dimensions (SCDs)
+
+## Slowly Changing Dimensions (SCDs)
+
 SCDs refer to a data warehousing concept where dimensions contain both current AND historical data. This is a common approach to maintaining historical details in a data warehouse but their use will depend on both the business needs and purpose of the data warehouse.
 
 At a basic level, the dimension will change slowly over time rather than at a scheduled interval — there is no fixed pattern in the frequency of the dimension changes.
 
 This raises the question as to whether the data warehouse will store current or historical data or both. The decision will likely be dictated by business need and will be implemented and managed by a Data Architect or Engineer, but understanding the type of dimensions used and the rationale will be critical to the Data Analyst’s ability to respond to business questions and perform their role effectively.
 
-Different types of slowly changing dimensions
-
-•	Type 0: Always retains original
+## Different types of slowly changing dimensions
+- [Type 0: Always retains original]()<br/>
+•	
 •	Type 1 : Keeps latest data, old data is overwritten
 •	Type 2 : Keeps the history of old data by adding new row
 •	Type 3 : Adds new attribute to store changed value
