@@ -1,54 +1,51 @@
-The lifecycle of CDC to SCD in Delta Lake
+# The lifecycle of CDC to SCD in Delta Lake
 
-What is Change Data Capture (CDC)?
+## What is Change Data Capture (CDC)?
+
 CDC (Change Data Capture) is a collection of software design patterns used to detect any data change in the database. It triggers the event associated with data so that a particular action will be taken for any Change Data Capture.
-How does CDC work?
+
+## How does CDC work?
+
  CDC tracks row-level changes in database-source tables categorized as update, insert, and delete events- and then make those change notifications available to any other services or systems that depend on the same data. The change notifications are sent in the same order as they were generated in the original database. This way, CDC ensures that all the interested parties of a given dataset are precisely informed of the change and can react accordingly, by either refreshing their own version of the data or by triggering business processes
-Benefits of CDC
+ 
+## Benefits of CDC
+
 CDC Generates more Savings
 CDC Generates more Revenue
 CDC Protects Business Assets
 CDC gets rid of Opportunity Costs
 
 
+## Implementation Techniques for Change Data Capture (CDC)
 
+1) **Timestamp Based Technique**<br/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Implementation Techniques for Change Data Capture (CDC)
-1) Timestamp Based Technique
 This technique depends on a timestamp field in the source to identify and extract the changed data sets.
-2) Triggers Based Technique
+
+2) **Triggers Based Technique**<br/>
+
 This technique requires the creation of database triggers to identify the changes that have occurred in the source system and then capture those changes into the target database.
 The implementation of this technique is specific to the database on which the triggers need to be created.
-3) Snapshot Based Technique
+
+3) **Snapshot Based Technique**<br/>
+
 This technique involves creating a complete extract of data from the source table in the target staging area.
 Therefore, the next time the incremental data needs to be loaded, a second version or snapshot of the source table is compared to the original one for spotting the changes.
-4) Log Based Technique
+
+4) **Log Based Technique**<br/>
+
 Almost all Database Management Systems have a transaction log file that records all changes and modifications in the database made by each transaction. 
 In general, every DML operation such as CREATE, UPDATE, DELETE is captured in a log file in the database, along with the timestamp or a database-specific unique identifier indicating when each of these operations was incurred.
 This log-based technique depends on this log information to spot the changes and perform CDC operations
 
-Use Cases for Change Data Capture in ETL
+## Use Cases for Change Data Capture in ETL
 
-1) Transaction Analysis
-•	Fraud detection
+1) **Transaction Analysis**<br/>
+- **Fraud detection:**<br/>
 You want to analyze transactions in some sort of batch manner to see if credit cards are being used from multiple locations at the same time.
 •	Kafka pipeline
 You want some sort of analysis done on a transaction level and not an aggregated level.
-2) Data Duplication
+2) **Data Duplication**<br/>
 •	Database mirroring
 Database mirroring is a strategy used in High Availability (HA) and Disaster Recovery (DR) database deployments. It involves two or three SQL Server instances where one acts as a primary instance (principal), the other as a mirrored instance (mirror), while the third instance acts as the witness.
 •	Database replication
